@@ -1,4 +1,5 @@
 from tkinter import *
+from tkmacosx import Button
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
@@ -39,10 +40,10 @@ entry_password.grid(column=1, row=3, sticky="EW")
 
 # Buttons
 
-generate_btn = Button(text="Generate Password")
+generate_btn = Button(window, text="Generate Password")
 generate_btn.grid(column=2, row=3, sticky="EW")
 
-add_btn = Button(text="Add", width=35, bg="green")
+add_btn = Button(text="Add", width=35)
 add_btn.grid(column=1, row=4, columnspan=2, sticky="EW")
 
 
