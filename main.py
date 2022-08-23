@@ -4,6 +4,17 @@ from tkmacosx import Button
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+def save():
+
+    website = entry_website.get()
+    email = entry_email_uname.get()
+    password = entry_password.get()
+    with open("data.txt", "a") as data_file:
+        data_file.write(f"{website} | {email} | {password}\n")
+        entry_website.delete(0, END)
+        entry_password.delete(0, END)
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -31,9 +42,11 @@ password_label.grid(column=0, row=3)
 
 entry_website = Entry()
 entry_website.grid(column=1, row=1, columnspan=2, sticky="EW")
+entry_website.focus()
 
 entry_email_uname = Entry()
 entry_email_uname.grid(column=1, row=2, columnspan=2, sticky="EW")
+entry_email_uname.insert(0, "diana@email.com")
 
 entry_password = Entry()
 entry_password.grid(column=1, row=3, sticky="EW")
@@ -43,7 +56,7 @@ entry_password.grid(column=1, row=3, sticky="EW")
 generate_btn = Button(window, text="Generate Password")
 generate_btn.grid(column=2, row=3, sticky="EW")
 
-add_btn = Button(text="Add", width=35)
+add_btn = Button(text="Add", width=35, command=save)
 add_btn.grid(column=1, row=4, columnspan=2, sticky="EW")
 
 
