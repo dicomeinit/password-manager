@@ -5,6 +5,7 @@ from tkinter import messagebox
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+
 def save():
 
     website = entry_website.get()
@@ -16,11 +17,12 @@ def save():
     else:
         is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email}"
                            f"\nPassword: {password} \nIs it ok to save?")
-    if is_ok:
-        with open("data.txt", "a") as data_file:
-            data_file.write(f"{website} | {email} | {password}\n")
-            entry_website.delete(0, END)
-            entry_password.delete(0, END)
+
+        if is_ok:
+            with open("data.txt", "a") as data_file:
+                data_file.write(f"{website} | {email} | {password}\n")
+                entry_website.delete(0, END)
+                entry_password.delete(0, END)
 
 
 
